@@ -16,7 +16,7 @@
 // longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 // ----------------------------------------
 
-// SOLUTION
+// MY SOLUTION
 // ----------------------------------------
 function longest(s1, s2) {
   let letterArr = [];
@@ -33,4 +33,14 @@ function longest(s1, s2) {
 }
 // ----------------------------------------
 
+// SOLUTIONS FROM THE CROWD
+// ----------------------------------------
+const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
+// A 'Set' is a new ES6 object type to create collections of unique values.
+// Using a set in this solution inherently completes the filtering I do in my solution (lines 27-30).
+// ----------------------------------------
 
+
+// ========================================
+//              TwoToOne
+// ========================================
