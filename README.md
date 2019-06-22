@@ -8,4 +8,4 @@ A repo to track the kata I complete on Codewars and make note of interesting sol
 So far, I've only trained on JavaScript kata.
 
 ### Completed Kata
-* Two to One
+* [Two to One](https://www.codewars.com/kata/5656b6906de340bd1b0000ac)
