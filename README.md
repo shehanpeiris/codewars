@@ -11,3 +11,4 @@ So far, I've only trained on JavaScript kata.
 * [Two to One](https://www.codewars.com/kata/5656b6906de340bd1b0000ac)
 * [Square Every Digit](https://www.codewars.com/kata/546e2562b03326a88e000020)
 * [Sums of Parts](https://www.codewars.com/kata/sums-of-parts/javascript)
+* [If you can't sleep, just count sheep!](https://www.codewars.com/kata/if-you-cant-sleep-just-count-sheep/javascript)
