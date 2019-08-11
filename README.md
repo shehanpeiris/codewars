@@ -8,6 +8,7 @@ A repo to track the kata I complete on Codewars and make note of interesting sol
 So far, I've only trained on JavaScript kata.
 
 ### Completed Kata
+* [Driving License](https://www.codewars.com/kata/driving-licence/javascript)
 * [Count the Monkeys!](https://www.codewars.com/kata/count-the-monkeys/javascript)
 * [If you can't sleep, just count sheep!](https://www.codewars.com/kata/if-you-cant-sleep-just-count-sheep/javascript)
 * [Sums of Parts](https://www.codewars.com/kata/sums-of-parts/javascript)

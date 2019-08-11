@@ -202,19 +202,142 @@ function monkeyCount(n) {
 // #########################################################################################################
 
 // ========================================
-//             [INSERT TITLE]
+//            Driving License
 // ========================================
 
 // CHALLENGE
 // ----------------------------------------
+// Using personal details from a data array, construct the driving license number in accordance with the following rules:
+
+// 1–5: The first five characters of the surname (padded with 9s if less than 5 characters)
+
+// 6: The decade digit from the year of birth (e.g. for 1987 it would be 8)
+
+// 7–8: The month of birth (7th character incremented by 5 if driver is female i.e. 51–62 instead of 01–12)
+
+// 9–10: The date within the month of birth
+
+// 11: The year digit from the year of birth (e.g. for 1987 it would be 7)
+
+// 12–13: The first two initials of the first name and middle name, padded with a 9 if no middle name
+
+// 14: Arbitrary digit – usually 9, but decremented to differentiate drivers with the first 13 characters in common. We will always use 9
+
+// 15–16: Two computer check digits. We will always use "AA"
+
 // ----------------------------------------
 
 // MY SOLUTION
 // ----------------------------------------
+function driver(data) {
+  // Define our output as an empty string
+  let drivingNumber = "";
+  
+  // Extracting the first 5 chars from surname
+  if (data[2].length > 4) {
+    drivingNumber += data[2].substring(0,5).toUpperCase();
+  } else {
+    drivingNumber += data[2].toUpperCase();
+    let x = 5 - data[2].length;
+    for (let i=0; i<x; i++) {
+      drivingNumber += "9";
+    };
+  };
+  
+  // Extracting the decade digit
+  let dobLength = data[3].length - 2
+  drivingNumber += data[3].charAt(dobLength);
+  
+  // Extract month + gender
+  let stringMonth = "";
+  let dobMonth = data[3].substring(3,6);
+  switch (dobMonth) {
+    case "Jan":
+      stringMonth = "01";
+      break;
+    case "Feb":
+      stringMonth = "02";
+      break;
+    case "Mar":
+      stringMonth = "03";
+      break;
+    case "Apr":
+      stringMonth = "04";
+      break;
+    case "May":
+      stringMonth = "05";
+      break;
+    case "Jun":
+      stringMonth = "06";
+      break;
+    case "Jul":
+      stringMonth = "07";
+      break;
+    case "Aug":
+      stringMonth = "08";
+      break;
+    case "Sep":
+      stringMonth = "09";
+      break;
+    case "Oct":
+      stringMonth = "10";
+      break;
+    case "Nov":
+      stringMonth = "11";
+      break;
+    case "Dec":
+      stringMonth = "12";
+      break;
+    default:
+      console.log("Error");
+  };
+  
+  if (data[4] === "M") {
+    drivingNumber += stringMonth
+  } else {
+    let test = stringMonth.split("");
+    test[0] = parseInt(test[0]) + 5;
+    drivingNumber += test[0] + test[1];
+  };
+  
+  // Extracting date of birth
+  drivingNumber += data[3].substring(0,2);
+  
+  // Extracting digit from year of birth
+  drivingNumber += data[3].charAt(data[3].length - 1);
+  
+  // Extracting intials from first name
+  drivingNumber += data[0].charAt(0);
+  
+  // Extracting intials from middle ame
+  if (data[1].length) {
+    drivingNumber += data[1].charAt(0);
+  } else {
+    drivingNumber += 9;
+  };
+  
+  // Adding fixed characters
+  drivingNumber += "9AA";
+  
+  // Return final string
+  return drivingNumber;
+}
 // ----------------------------------------
 
 // SOLUTIONS FROM THE CROWD
 // ----------------------------------------
+function driver(data) {
+  var name = (data[2].slice(0,5).toUpperCase() +'99999').slice(0,5);    // Combining the 9s with the name up-front
+  var dob = new Date(data[3]); // Convert DOB to a "Date" at the beginning
+  var dec = (dob.getYear().toString().length==2 ? dob.getYear().toString()[0] : dob.getYear().toString()[1]);  // 1
+  var month = (data[4] == "M" ? ("0" + (dob.getMonth()+1).toString()).slice(-2) : dob.getMonth()+51);
+  var day = ("0" + dob.getDate().toString()).slice(-2);
+  var yearDig = dob.getYear().toString().slice(-1);
+  var inits = data[0][0] + (data[1]=="" ? "9" : data[1][0])
+  var arb1 = "9"
+  var arb2 = "AA"
+  return name + dec + month + day + yearDig + inits + arb1 + arb2
+};
 // ----------------------------------------
 
 // #########################################################################################################
