@@ -8,6 +8,8 @@ A repo to track the kata I complete on Codewars and make note of interesting sol
 So far, I've only trained on JavaScript kata.
 
 ### Completed Kata
+* [AlTeRnAtE cApItAlIzAtIoN](https://www.codewars.com/kata/alternate-capitalization/javascript)
+* [What's in a name? Incomplete](https://www.codewars.com/kata/whats-in-a-name/javascript)
 * [Create Phone Number](https://www.codewars.com/kata/create-phone-number/javascript)
 * [Driving License](https://www.codewars.com/kata/driving-licence/javascript)
 * [Count the Monkeys!](https://www.codewars.com/kata/count-the-monkeys/javascript)

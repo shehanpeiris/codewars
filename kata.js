@@ -390,21 +390,79 @@ function createPhoneNumber(numbers){
 
 // CHALLENGE
 // ----------------------------------------
+// Test whether or not the string contains all of the letters which spell a given name, in order.
+// A function passing two strings, searching for one (the name) within the other.
+// function nameInStr(str, name){ return true || false }
 // ----------------------------------------
 
 // MY SOLUTION
 // ----------------------------------------
+//               ¯\_(ツ)_/¯
 // ----------------------------------------
 
 // SOLUTIONS FROM THE CROWD
 // ----------------------------------------
+function nameInStr(str, name){
+  // Convert both to all-lowercase
+  name = name.toLowerCase()
+  str = str.toLowerCase()
+  
+  let index = 0
+  
+  for (let char of str) {
+    if (char === name[index])
+      index++
+  }
+  
+  return index === name.length
+};
 // ----------------------------------------
 
 // #########################################################################################################
 // #########################################################################################################
 
 // ========================================
-//             [INSERT TITLE]
+//        Alternate Capitalization
+// ========================================
+
+// CHALLENGE
+// ----------------------------------------
+// Given a string, capitalize the letters that occupy even indexes and odd
+// indexes separately, and return as shown below. Index 0 will be considered even.
+// For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF'].
+// ----------------------------------------
+
+// MY SOLUTION
+// ----------------------------------------
+function capitalize(s){
+  let split1 = s.split("");
+  let split2 = s.split("");
+  let output=[];
+  for (let i=0; i<split1.length; i+=2) {
+    split1[i] = split1[i].toUpperCase();
+  }
+  for (let j=1; j<split2.length; j+=2) {
+    split2[j] = split2[j].toUpperCase();
+  }
+  output.push(split1.join(""), split2.join(""));
+  return output;
+};
+// ----------------------------------------
+
+// SOLUTIONS FROM THE CROWD
+// ----------------------------------------
+function capitalize(s){
+  const odd = s.split("").map((l, i) => i % 2 !== 0 ? l.toUpperCase() : l).join("");
+  const even = s.split("").map((l, i) => i % 2 === 0 ? l.toUpperCase() : l).join("");
+  return [even, odd];
+};
+// ----------------------------------------
+
+// #########################################################################################################
+// #########################################################################################################
+
+// ========================================
+//        INSERT TITLE
 // ========================================
 
 // CHALLENGE
